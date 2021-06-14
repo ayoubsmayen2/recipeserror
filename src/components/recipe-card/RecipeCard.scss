@@ -1,0 +1,43 @@
+.recipe-card-container {
+  .card-media {
+    overflow: hidden;
+    position: relative;
+
+    img {
+      transition: transform 500ms ease-in;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -10px;
+
+    .favorite-btn {
+      align-self: baseline;
+      margin-right: -12px;
+    }
+
+    h6 {
+      transition: color ease-in-out 250ms;
+    }
+
+    h6:hover {
+      color: #f50075;
+    }
+  }
+
+  .content-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    svg {
+      margin-right: 2px;
+    }
+  }
+}

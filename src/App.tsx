@@ -1,26 +1,26 @@
+import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Container from '@material-ui/core/Container';
 
-export default App;
+import { CategoryMenu } from './components/layout/category-menu/CategoryMenu';
+import { Footer } from './components/layout/footer/Footer';
+import { Search } from './components/layout/search/Search';
+import { TopBar } from './components/layout/topbar/TopBar';
+import { Routes as Content, history } from './routes';
+import { store } from './store';
+
+export const App: React.FC = () => (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <TopBar />
+      <Container maxWidth="md" className="app-container">
+        <CategoryMenu />
+        <Search placeholder="Search Recipes..." />
+        <Content />
+      </Container>
+      <Footer />
+    </ConnectedRouter>
+  </Provider>
+);
